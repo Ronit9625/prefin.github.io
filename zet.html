@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PrefinPay - Instant Credit for Your Needs</title>
+    <style>
+        /* Add your custom styles here */
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #fff;
+            color: #fff;
+            text-align: center;
+        }
+
+        header {
+            background-color: #000;
+            padding: 10px;
+            text-align: center;
+        }
+
+        section {
+            padding: 20px;
+        }
+
+        h2 {
+            color: #2075f0;
+        }
+
+        p {
+            line-height: 1.6;
+
+           font-family: 'Arial', Monospaced;
+        }
+
+        .key-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        .feature {
+            flex: 1 1 300px;
+            padding: 20px;
+            background-color: #000;
+            border-radius: 8px;
+            margin-bottom: 20px;
+           border-radius: 15px;
+        }
+
+        footer {
+            background-color: #000;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .download-btn {
+            background-color: #2075f0;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 15px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .slideshow-container {
+            max-width: 15%;
+            max-height: 10%;
+            position: relative;
+            margin: auto;
+            overflow: hidden;
+   
+        }
+
+        .mySlides {
+            display: none;
+        }
+
+        .slide-img {
+            width: 100%;
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .nav-link {
+            margin: 0 15px;
+            color: #000;
+            text-decoration: none;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>PrefinPay</h1>
+
+ 
+         
+    </header>
+<p>Revolutionizing Your Financial Experience</p>
+    <section>
+        <div class="slideshow-container">
+            <div class="mySlides">
+                <img class="slide-img" src="file:///C:/Users/ronit/Downloads/prefinpayweb/unnamed%20(1).webp" alt="Slide 1">
+            </div>
+
+            <div class="mySlides">
+                <img class="slide-img" src="file:///C:/Users/ronit/Downloads/prefinpayweb/unnamed%20(2).webp" alt="Slide 2">
+            </div>
+
+            <div class="mySlides">
+                <img class="slide-img" src="file:///C:/Users/ronit/Downloads/prefinpayweb/unnamed%20(3).webp" alt="Slide 3">
+            </div>
+
+            <div class="mySlides">
+                <img class="slide-img" src="file:///C:/Users/ronit/Downloads/prefinpayweb/unnamed%20(4).webp" alt="Slide 4">
+            </div>
+           
+            <div class="mySlides">
+                <img class="slide-img" src="file:///C:/Users/ronit/Downloads/prefinpayweb/unnamed%20(5).webp" alt="Slide 5">
+            </div>
+
+           <div class="mySlides">
+                <img class="slide-img" src="file:///C:/Users/ronit/Downloads/prefinpayweb/unnamed%20(6).webp" alt="Slide 6">
+            </div>
+
+        </div>
+
+<a class="download-btn" href="https://play.google.com/store/apps/details?id=com.prefinplus.in" target="_blank">Download Now</a>
+
+
+        <div class="key-features">
+               <div class="feature">
+                <h2>Instant Credit Assessment</h2>
+                <p>PrefinPay uses innovative algorithms and data analytics to assess your creditworthiness in real-time.</p>
+            </div>
+
+            <div class="feature">
+                <h2>Personalized Credit Limit</h2>
+                <p>Get a personalized credit limit tailored to your financial requirements for various daily expenses.</p>
+            </div>
+
+            <div class="feature">
+                <h2>Quick and Easy Application</h2>
+                <p>Applying for credit with PrefinPay is a breeze. Download, create an account, and provide necessary information.</p>
+            </div>
+
+            <div class="feature">
+                <h2>Flexible Repayment Options</h2>
+                <p>Choose a repayment plan that works best for you, whether it's monthly or after 90-day installments.</p>
+            </div>
+
+            <div class="feature">
+                <h2>Real-time Account Management</h2>
+                <p>Track your spending, view your repayment schedule, and manage your account preferences all in one place.</p>
+            </div>
+
+            <div class="feature">
+                <h2>Security and Privacy</h2>
+                <p>We prioritize the security and privacy of our users with state-of-the-art encryption and security measures.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="navigation">
+        <a class="nav-link" href="file:///C:/Users/ronit/Downloads/prefinpayweb/safari.html">Apply now</a>
+        <a class="nav-link" href="#features">Features</a>
+        <a class="nav-link" href="#download">Download</a>
+        <a class="nav-link" href="#contact">Contact</a>
+    </div>
+
+    <footer>
+        <p>Made with love by PrefinPay Technology Private Limited</p>
+
+    </footer>
+
+    <script>
+        // Add JavaScript for slideshow
+        let slideIndex = 0;
+
+        function showSlides() {
+            let i;
+            const slides = document.getElementsByClassName("mySlides");
+
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+
+            slideIndex++;
+
+            if (slideIndex > slides.length) {
+                slideIndex = 1;
+            }
+
+            slides[slideIndex - 1].style.display = "block";
+            setTimeout(showSlides, 2000); // Change slide every 2 seconds
+        }
+
+        showSlides();
+    </script>
+
+</body>
+
+</html>

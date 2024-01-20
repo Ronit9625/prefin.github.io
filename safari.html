@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <title>Prefin loan</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, serif;
+      background-color: #000000;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+
+ header {
+            background-color: #fff;
+            text-align: center;
+            color: #000;
+            margin-bottom: 5px;
+            padding: 10px;
+           font-size: 13px;
+        }
+}
+
+ #formContainer {
+    height: 100%
+    background-color: #001f3f; /* Set the top part of the form to dark blue */
+    text-align: center;
+    padding: 10px;
+   align-items: center;
+      justify-content: center;
+  } 
+
+    form {
+     height: 100%%;    
+      width: 100%;
+      background-color: #fff;
+      padding: 10px;
+      text-align: left;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      align-items: center;
+      justify-content: center;
+text-align: center;
+
+    }
+
+
+
+
+h1 {
+      text-align: center;
+     color: #000;
+      width: 100%;
+      margin-bottom: 20px;
+      background-color:#fff;
+      font-size: 15px;
+    }
+
+    label {
+      display: block;
+      text-align: left;
+      margin-bottom: 8px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 16px;
+      box-sizing: border-box;
+     border: 1px solid #000000;
+    }
+
+    button {
+      background-color: #7CB9E8;
+      width: 60%;
+      color: #000;
+      padding: 10px;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      button-align: center;
+    }
+
+    .notification {
+      display: none;
+      background-color: #27ae60;
+      color: #fff;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <form id="financialForm">
+
+
+<header>
+
+
+<img src="file:///C:/Users/ronit/Downloads/prefinpayweb/istockphoto-1325336155-612x612.jpg" alt="Your Image" style="width: 15%; height: 3%;">
+
+        <h1>Fill your personal details</h1> 
+       
+    </header>
+
+
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name" required>
+
+  <label for="age">Age:</label>
+  <input type="number" id="age" name="age" required maxlength="2">
+
+  <label for="employment">Employment:</label>
+  <select id="employment" name="employment" required>
+    <option value="salaried">Salaried</option>
+    <option value="self-employed">Self-employed</option>
+  </select>
+
+  <label for="income">Monthly Income:</label>
+  <input type="number" id="income" name="income" required>
+
+  <label for="pan">Pan Card:</label>
+  <input type="text" id="pan" name="pan" required maxlength="10">
+
+  <label for="aadhar">Aadhar Card:</label>
+  <input type="text" id="aadhar" name="aadhar" required maxlength="12">
+
+  <button type="button" onclick="submitForm()">Continue</button>
+
+  <div id="notification" class="notification"></div>
+</form>
+
+  <script src="https://www.gstatic.com/firebasejs/9.0.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.0.1/firebase-database.js"></script>
+
+  <script>
+const firebaseConfig = {
+  apiKey: "AIzaSyAxI6fV019jMYlwUoaBH9MrKZlhl1cJd5g",
+  authDomain: "prefin-4062f.firebaseapp.com",
+  databaseURL: "https://prefin-4062f-default-rtdb.firebaseio.com",
+  projectId: "prefin-4062f",
+  storageBucket: "prefin-4062f.appspot.com",
+  messagingSenderId: "1027086085497",
+  appId: "1:1027086085497:web:0e9e984f7644ae47c553a8",
+  measurementId: "G-0042PYRPCG"
+};
+
+    firebase.initializeApp(firebaseConfig);
+    const database = firebase.database();
+
+    function submitForm() {
+      var nameInput = document.getElementById('name');
+      var ageInput = document.getElementById('age');
+      var employmentInput = document.getElementById('employment');
+      var incomeInput = document.getElementById('income');
+      var panInput = document.getElementById('pan');
+      var aadharInput = document.getElementById('aadhar');
+      var notification = document.getElementById('notification');
+
+      if (nameInput.value && ageInput.value.length === 2 && employmentInput.value && incomeInput.value && panInput.value.length === 10 && aadharInput.value.length === 12) {
+        // Prepare data object
+        var formData = {
+          name: nameInput.value,
+          age: ageInput.value,
+          employment: employmentInput.value,
+          income: incomeInput.value,
+          pan: panInput.value,
+          aadhar: aadharInput.value,
+          email: "prebr@gmail.com"  // Fixed email
+        };
+
+        // Save data to Firebase Realtime Database
+        database.ref('leads').push(formData)
+          .then(() => {
+            notification.textContent = 'Lead submitted successfully!';
+            notification.style.backgroundColor = '#27ae60';
+            notification.style.display = 'block';
+          })
+          .catch(error => {
+            console.error('Firebase error:', error);
+            notification.textContent = 'Error submitting lead. Please try again.';
+            notification.style.backgroundColor = '#e74c3c';
+            notification.style.display = 'block';
+          });
+      } else {
+        notification.textContent = 'Please fill out all fields correctly.';
+        notification.style.backgroundColor = '#e74c3c';
+        notification.style.display = 'block';
+      }
+    }
+  </script>
+
+</body>
+</html>
+
