@@ -4,14 +4,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST["email"];
     $message = $_POST["message"];
 
-    $to = "prefinpay@gmail.com";
+    // You can customize the email subject and body as per your needs
     $subject = "New Contact Form Submission";
-    $headers = "From: $email";
+    $body = "Name: $name\nEmail: $email\n\n$message";
 
-    mail($to, $subject, $message, $headers);
+    // Replace 'your_email@example.com' with your actual email address
+    $to = "prefinpay@gmail.com";
 
-    echo "Form submitted successfully!";
-} else {
-    echo "Error submitting form.";
+    // Send the email
+    mail($to, $subject, $body, "From: $email");
+
+    // Redirect to a thank you page or show a success message
+    header("Location: thank_you.html");
+    exit();
 }
 ?>
