@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,53 +12,43 @@
             margin: 0;
             padding: 0;
             display: flex;
-            align-items: center;
             justify-content: center;
+            align-items: center;
             height: 100vh;
         }
 
-        .contact-form {
-            max-width: 400px;
-            padding: 20px;
+        .card {
             background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 300px;
         }
 
-        input,
-        button {
+        label {
             display: block;
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            box-sizing: border-box;
-            border: 1px solid #ccc;
-            border-radius: 4px;
+            margin-bottom: 8px;
+            font-weight: bold;
         }
 
-        button {
-            background-color: #4caf50;
-            color: #fff;
-            cursor: pointer;
+        p {
+            margin: 0;
         }
     </style>
 </head>
+
 <body>
-    <div class="contact-form">
-        <h2>Contact Us</h2>
-        <form action="process_form.php" method="post">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
+    <div class="card">
+        <label for="mobile">Mobile Number:</label>
+        <p id="mobile">(+91) <br>8527616141</br> <br>9625844090</br></p>
 
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
+        <label for="email">Email Address:</label>
+        <p id="email">prefinpay@gmail.com</p>
 
-            <label for="message">Message:</label>
-            
-            <textarea id="message" name="message" rows="4" required></textarea>
-
-            <button type="submit">Submit</button>
-        </form>
+        <label for="services">View Services:</label>
+        <p id="<a href="https://play.google.com/store/apps/details?id=com.prefin.in" target="_blank">Click here to view the app on Google Play</a>
+"></p>
     </div>
 </body>
+
 </html>
